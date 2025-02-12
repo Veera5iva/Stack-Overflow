@@ -10,8 +10,4 @@ const databases = new Databases(client);
 const avatars = new Avatars(client);
 const storage = new Storage(client);
 
-
-
-const result = await account.get();
-
-console.log(result);
+export { client, account, databases, avatars, storage };
