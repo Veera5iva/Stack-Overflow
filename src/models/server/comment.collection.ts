@@ -1,11 +1,11 @@
-import { db } from "../name";
+import { commentCollection, db } from "../name";
 import { Permission } from "node-appwrite";
 import { databases } from "./config";
 
 export default async function createCommentCollection() {
 
    // creating comment collection
-   await databases.createCollection(db, "commentCollection", "commentCollection", [
+   await databases.createCollection(db, commentCollection, commentCollection, [
       Permission.read("any"),
       Permission.read("users"),
       Permission.create("users"),

@@ -24,24 +24,16 @@ export default async function createQuestionCollection() {
    ])
    console.log("Question collection attributes created");
 
+
+   // adding delay to ensure all the attributes are available before indexing
+   await new Promise(resolve => setTimeout(resolve, 2000));
+
+
    // create indexes
    await Promise.all([
-      databases.createIndex(
-         db,
-         questionCollection,
-         "title",
-         IndexType.Fulltext,
-         ["title"],
-         ["asc"]
-      ),
-      databases.createIndex(
-         db,
-         questionCollection,
-         "content",
-         IndexType.Fulltext,
-         ["content"],
-         ["asc"]
-      )
+      databases.createIndex(db, questionCollection, "title", IndexType.Fulltext, ["title"], ["asc"]),
+      databases.createIndex(db, questionCollection, "content", IndexType.Fulltext, ["content"], ["asc"])
    ])
+   console.log("Question collection indexes created");
    
 }

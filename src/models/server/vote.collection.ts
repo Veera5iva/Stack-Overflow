@@ -1,11 +1,11 @@
-import { db } from "../name";
+import { db, voteCollection } from "../name";
 import { Permission } from "node-appwrite";
 import { databases } from "./config";
 
 export default async function createVoteCollection() {
 
    // creating vote collection
-   await databases.createCollection(db, "voteCollection", "voteCollection", [
+   await databases.createCollection(db, voteCollection, voteCollection, [
       Permission.read("any"),
       Permission.read("users"),
       Permission.create("users"),
